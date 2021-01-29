@@ -83,6 +83,27 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     
     
+    // -- Detects Touches from USER
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let touchLocation = touch.location(in: sceneView)
+            
+            if let query = sceneView.raycastQuery(from: touchLocation, allowing: .existingPlaneGeometry, alignment: .any) {
+                let results = sceneView.session.raycast(query)
+                if !results.isEmpty {
+                    print("touched the plane")
+                } else {
+                    print("touched somewhere else")
+                }
+    
+            }
+            
+        }
+    }
+    
+    
+    
+    
 
     //SETS UP HORIZONTAL PLANE
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
