@@ -21,8 +21,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         //MARK: - NEW CODE
         
-        // SHOWS Where it Finding Points for Nodes
-        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        // SHOWS Where it Finding Points for Nodes DEBUG OPTIONS
+        //self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
         
         sceneView.delegate = self
@@ -118,6 +118,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
         }
     }
+    
+
     
     
     func rollAll() {
