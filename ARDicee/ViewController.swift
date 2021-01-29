@@ -158,6 +158,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     
+    @IBAction func removeAllDice(_ sender: UIBarButtonItem) {
+        
+        if !diceArray.isEmpty {
+            for dice in diceArray {
+                dice.removeFromParentNode()
+            }
+        }
+        
+    }
+    
+    
 
     ///SETS UP HORIZONTAL PLANE
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
