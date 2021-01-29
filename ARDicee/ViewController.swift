@@ -16,21 +16,46 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the view's delegate
-        sceneView.delegate = self
-                                //-Units are in Meters         -How rounded the corners are
-        let cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
         
+        //MARK: - NEW CODE
+        
+     
+        sceneView.delegate = self
+        
+        
+        ///   **SHAPES**                                  -Units are in *Meters*                  -How *rounded* the corners are
+        let cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
+        let sphere = SCNSphere(radius: 0.2)
+        
+        ///MATERIAL Container
         let material = SCNMaterial()
         
-        //base material
-        material.diffuse.contents = UIColor.red
-        cube.materials = [material]
+        ///**Base Material Design**                                   Texture Map from -  SolarSystemScope.com
+        material.diffuse.contents = UIImage(named: "art.scnassets/8k_moon.jpg")
+        sphere.materials = [material]
         
-        //Node 1 -- assign a Position in 3-D Space
+        ///**Node 1** -- Position in 3-D Space
         let node = SCNNode()
         node.position = SCNVector3(x: 0, y: 0.1, z: -0.5)
-        node.geometry = cube 
+        
+        ///ASSIGN Object to Node Position
+        node.geometry = cube
+        
+        ///ADD Node to View
+        sceneView.scene.rootNode.addChildNode(node)
+        
+        ///--ADD  **Light**
+        sceneView.autoenablesDefaultLighting = true
+        
+        
+        
+        
+        //MARK: - NEW CODE ^
+        
+        
+        
+        
+        
         
     
         
